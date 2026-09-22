@@ -26,7 +26,7 @@ test('Kiểm thử tự động - Đăng nhập DXCenter với POM', async ({ pa
   // 1. Mở trang đăng nhập
   await loginPage.goto();
   // 2. Gọi hàm đăng nhập và truyền tài khoản/mật khẩu vào
-  await loginPage.login('trinh.vo', 'abcd@1234');
+  await loginPage.login('trinh.vo', 'abcd@123');
   // 3. Kiểm tra URL thay đổi sau khi đăng nhập thành công
   await expect(page).toHaveURL(/.*giao-viec\/thong-ke-giao-viec-ca-nhan.*/);
 
