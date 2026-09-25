@@ -51,11 +51,11 @@ test('Kiểm thử tự động - Đăng nhập DXCenter với POM', async ({ pa
   await page.getByRole('button', { name: 'Trở về' }).click();
   // tổng dự án
   await page.getByRole('button', { name: /^Tổng dự án/ }).getByText('Xem thêm →').click();
-  // Click vào nút "Tổng dự án"
+  // Click vào nút "Trở về tổng dự án"
   await page.getByRole('button', { name: 'Trở về' }).click();
   // Dự án mới
   await page.getByRole('button', { name: /^Tổng dự án/ }).getByText('Xem thêm →').click();
-  // Click vào nút "Dự án mới"
+  // Click vào nút "Trở về dự án mới"
   await page.getByRole('button', { name: 'Trở về' }).click();
 
   // ---- PHẦN 3: THÊM LOẠI DỰ ÁN ----
