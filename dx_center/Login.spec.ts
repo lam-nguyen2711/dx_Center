@@ -36,10 +36,15 @@ test('Kiểm thử tự động - Đăng nhập DXCenter với POM', async ({ pa
   // Click vào menu Quản lý dự án
   await dashboardPage.clickQuanLyDuAn();
   // (Tuỳ chọn) Kiểm tra xem đã chuyển sang trang Quản lý dự án chưa
-  // Ví dụ: Kiểm tra URL có chứa chữ quan-ly-du-an hoặc kiểm tra một thẻ Heading xuất hiện
+  // Ví dụ: Kiểm tra URL có chứa chữ quan-ly-du-an hoặc kiểm tr a một thẻ Heading xuất hiện
   // Bạn có thể sửa lại đoạn URL dưới đây cho đúng với URL thực tế của trang web khi bấm vào menu
   await expect(page).toHaveURL(/.*quan-ly-du-an.*/);
   await expect(page.getByText('Biểu đồ Dự án mới theo bước thực hiện')).toBeVisible({ timeout: 15000 });
+
+  // Tìm thẻ/khối chứa text "Dự án chuyển tiếp", sau đó tìm nút/chữ "Xem thêm →" bên trong và click
+  await page.locator('div').filter({ hasText: /^Dự án chuyển tiếp/ }).getByText('Xem thêm →').click();
+
+
 
   // ---- PHẦN 3: THÊM LOẠI DỰ ÁN ----
   // Vào trang Quản lý dự án / Thêm loại dự án
