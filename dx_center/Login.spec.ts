@@ -58,6 +58,8 @@ test('Kiểm thử tự động - Đăng nhập DXCenter với POM', async ({ pa
   // Click vào nút "Trở về dự án mới"
   await page.getByRole('button', { name: 'Trở về' }).click();
 
+  // đánh gi
+
   // ---- PHẦN 3: THÊM LOẠI DỰ ÁN ----
   // Vào trang Quản lý dự án / Thêm loại dự án
   // const loaiDuAnPage = new LoaiDuAnPage(page);
