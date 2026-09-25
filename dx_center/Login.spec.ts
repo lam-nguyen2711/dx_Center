@@ -43,8 +43,20 @@ test('Kiểm thử tự động - Đăng nhập DXCenter với POM', async ({ pa
 
   // Tìm thẻ/khối chứa text "Dự án chuyển tiếp", sau đó tìm nút/chữ "Xem thêm →" bên trong và click
   await page.locator('div').filter({ hasText: /^Dự án chuyển tiếp/ }).getByText('Xem thêm →').click();
-
-
+  // Click vào nút "Trở về Dự án chuyển tiếp"
+  await page.getByRole('button', { name: 'Trở về' }).click();
+  // dự án cần xử lý
+  await page.getByRole('button', { name: /^Dự án cần xử lý/ }).getByText('Xem thêm →').click();
+  // Click vào nút "Trở về Dự án cần xử lý"
+  await page.getByRole('button', { name: 'Trở về' }).click();
+  // tổng dự án
+  await page.getByRole('button', { name: /^Tổng dự án/ }).getByText('Xem thêm →').click();
+  // Click vào nút "Tổng dự án"
+  await page.getByRole('button', { name: 'Trở về' }).click();
+  // Dự án mới
+  await page.getByRole('button', { name: /^Tổng dự án/ }).getByText('Xem thêm →').click();
+  // Click vào nút "Dự án mới"
+  await page.getByRole('button', { name: 'Trở về' }).click();
 
   // ---- PHẦN 3: THÊM LOẠI DỰ ÁN ----
   // Vào trang Quản lý dự án / Thêm loại dự án
