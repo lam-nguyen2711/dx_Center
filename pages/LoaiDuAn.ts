@@ -25,20 +25,16 @@ export class LoaiDuAn{
     // Bước 2: Ép click trực tiếp vào menu con "Loại dự án" bằng JavaScript nội bộ
     await this.loaiDuAn.evaluate((el) => (el as HTMLElement).click());
   }
-
-  // Hàm tìm loại dự án
-  // Trong file pages/LoaiDuAn.ts
+  
+  // Hàm tìm loại dự án}
   async nhapTuKhoaTimKiem(tuKhoa: string) {
     // 1. Click vào ô tìm kiếm
     await this.inputTimKiem.click();
-
     // 2. Xóa chữ cũ
     await this.inputTimKiem.press('Control+A');
     await this.inputTimKiem.press('Backspace');
-
     // 3. Gõ từng ký tự để kích hoạt sự kiện tìm kiếm của web
     await this.inputTimKiem.pressSequentially(tuKhoa, { delay: 100 });
-
     // 4. Nhấn Enter và đợi bảng cập nhật dữ liệu
     await this.inputTimKiem.press('Enter');
     await this.page.waitForTimeout(1500);
