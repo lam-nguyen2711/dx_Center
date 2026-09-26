@@ -52,9 +52,8 @@ test('Kiểm thử tự động - Danh sách đánh giá kết thúc', async ({ 
       } else {
         // 1. Kiểm tra bảng KHÔNG chứa từ khóa (như cũ)
         await expect(page.locator('table')).not.toContainText(row.tuKhoa);
-        
         // 2. Tối ưu: Kiểm tra bảng HIỂN THỊ dòng chữ báo trống
-        await expect(page.locator('table')).toContainText('Không có dữ liệu');
+        await expect(page.getByText('Không có dữ liệu')).toBeVisible({ timeout: 5000 });
       }
     };
   
