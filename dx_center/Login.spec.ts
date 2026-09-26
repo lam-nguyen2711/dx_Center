@@ -9,7 +9,7 @@ import { parse } from 'csv-parse/sync';
 
 
 // 1. Khai báo chính xác tên 3 cột có trong file CSV của bạn
-type LoaiDuAnCSV = {ten: string; ma: string; moTa: string};
+type LoaiDuAnCSV = { ten: string; ma: string; moTa: string };
 
 // 2. Ép kiểu dữ liệu (as LoaiDuAnCSV[]) ở cuối hàm parse
 const duLieuCSV = parse(fs.readFileSync(path.join(process.cwd(), 'du-lieu-test.csv')), {
@@ -56,9 +56,10 @@ test('Kiểm thử tự động - Đăng nhập DXCenter với POM', async ({ pa
   // Dự án mới
   await page.getByRole('button', { name: /^Tổng dự án/ }).getByText('Xem thêm →').click();
   // Click vào nút "Trở về dự án mới"
-  await page.getByRole('button', { name: 'Trở về' }).click();
-
-  // đánh gi
+  //await page.getByRole('button', { name: 'Trở về' }).click();
+  const btnTroVe = page.getByRole('button', { name: 'Trở về' });
+  await btnTroVe.waitFor({ state: 'visible', timeout: 10000 });
+  await btnTroVe.click();
 
   // ---- PHẦN 3: THÊM LOẠI DỰ ÁN ----
   // Vào trang Quản lý dự án / Thêm loại dự án
